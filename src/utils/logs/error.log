@@ -1,0 +1,76 @@
+2024-11-19 19:28:14 [ERROR]: Error connecting to Redis: getaddrinfo ENOTFOUND redis-15322.c263.us-east-1-2.ec2.reds.redis-cloud.com
+2024-11-19 19:33:44 [ERROR]: Error connecting to Redis: 982C0000:error:0A00010B:SSL routines:ssl3_get_record:wrong version number:c:\ws\deps\openssl\openssl\ssl\record\ssl3_record.c:355:
+
+2024-11-19 20:22:21 [ERROR]: cryptoJS.randomInt is not a function
+2024-11-19 20:32:29 [ERROR]: Uncaught Exception: read ECONNRESET
+2024-11-19 20:33:34 [ERROR]: Error connecting to Redis: Connection timeout
+2024-11-19 20:35:31 [ERROR]: notNull Violation: user.userName cannot be null,
+notNull Violation: user.password cannot be null,
+notNull Violation: user.phoneNumber cannot be null
+2024-11-19 20:38:25 [ERROR]: notNull Violation: user.userName cannot be null
+2024-11-19 20:38:52 [ERROR]: Assignment to constant variable.
+2024-11-19 20:39:02 [ERROR]: Assignment to constant variable.
+2024-11-19 21:36:37 [ERROR]: Uncaught Exception: read ECONNRESET
+2024-11-19 22:35:34 [ERROR]: string violation: password cannot be an array or an object
+2024-11-19 22:40:33 [ERROR]: Invalid argument type
+2024-11-19 22:43:03 [ERROR]: redisClient.setex is not a function
+2024-11-19 23:04:38 [ERROR]: Cannot access 'data' before initialization
+2024-11-19 23:06:48 [ERROR]: Cannot access 'data' before initialization
+2024-11-19 23:28:09 [ERROR]: C:\Users\amita\Desktop\LMS-AP\server\src\views\emailTamplet.ejs:81
+    79| 
+    80|       <!-- Optional Action Button (like a "Verify Email" button) -->
+ >> 81|       <a href="<%= actionUrl %>" class="button">Take Action</a>
+    82|     </div>
+    83| 
+    84|     <!-- Footer Section -->
+
+actionUrl is not defined
+2024-11-19 23:28:45 [ERROR]: C:\Users\amita\Desktop\LMS-AP\server\src\views\emailTamplet.ejs:81
+    79| 
+    80|       <!-- Optional Action Button (like a "Verify Email" button) -->
+ >> 81|       <a href="<%= actionUrl %>" class="button">Take Action</a>
+    82|     </div>
+    83| 
+    84|     <!-- Footer Section -->
+
+actionUrl is not defined
+2024-11-19 23:29:02 [ERROR]: C:\Users\amita\Desktop\LMS-AP\server\src\views\emailTamplet.ejs:81
+    79| 
+    80|       <!-- Optional Action Button (like a "Verify Email" button) -->
+ >> 81|       <!-- <a href="<%= actionUrl %>" sclass="button">Take Action</a> -->
+    82|     </div>
+    83| 
+    84|     <!-- Footer Section -->
+
+actionUrl is not defined
+2024-11-20 08:27:19 [ERROR]: Illegal arguments: string, undefined
+2024-11-20 08:30:35 [ERROR]: CurrentPassword is incorrect 
+2024-11-20 08:30:35 [ERROR]: httpResponseCodes is not defined
+2024-11-20 08:31:08 [ERROR]: CurrentPassword is incorrect 
+2024-11-20 08:51:58 [ERROR]: Cannot read properties of undefined (reading 'id')
+2024-11-20 11:46:24 [ERROR]: Uncaught Exception: read ECONNRESET
+2024-12-04 12:31:04 [ERROR]: Uncaught Exception: read ECONNRESET
+2024-12-04 18:38:24 [ERROR]: Unhandled Rejection: ReferenceError: async is not defined
+2024-12-04 18:58:41 [ERROR]: Internal server error:SequelizeValidationError: notNull Violation: SidebarMenu.to cannot be null,
+notNull Violation: SidebarMenu.title cannot be null
+2024-12-04 19:41:24 [ERROR]: Uncaught Exception: read ECONNRESET
+2024-12-05 06:31:01 [ERROR]: Uncaught Exception: read ECONNRESET
+2024-12-05 10:44:21 [ERROR]: Uncaught Exception: read ECONNRESET
+2024-12-08 00:13:09 [ERROR]: Error Connecting to Database
+2024-12-08 00:17:25 [ERROR]: Error Connecting to Database
+2024-12-08 00:19:43 [ERROR]: Error Connecting to Database
+2024-12-08 00:20:15 [ERROR]: Error Connecting to Database Access denied for user 'admin'@'103.182.10.185' (using password: YES)
+2024-12-12 15:49:26 [ERROR]: Invalid argument type
+2024-12-12 17:55:44 [ERROR]: CurrentPassword is incorrect 
+2024-12-12 17:55:51 [ERROR]: CurrentPassword is incorrect 
+2024-12-12 17:58:52 [ERROR]: Cannot read properties of undefined (reading 'id')
+2024-12-12 17:58:52 [ERROR]: Cannot read properties of undefined (reading 'id')
+2024-12-12 17:59:04 [ERROR]: Cannot read properties of undefined (reading 'id')
+2024-12-12 17:59:04 [ERROR]: Cannot read properties of undefined (reading 'id')
+2024-12-13 11:40:59 [ERROR]: Uncaught Exception: read ECONNRESET
+2024-12-13 13:05:15 [ERROR]: Uncaught Exception: read ECONNRESET
+2024-12-13 18:04:39 [ERROR]: Uncaught Exception: read ECONNRESET
+2024-12-13 22:05:31 [ERROR]: Uncaught Exception: read ECONNRESET
+2024-12-13 22:32:38 [ERROR]: Uncaught Exception: read ECONNRESET
+2024-12-14 12:37:56 [ERROR]: Uncaught Exception: file is not defined
+2024-12-14 12:40:29 [ERROR]: Uncaught Exception: file is not defined
