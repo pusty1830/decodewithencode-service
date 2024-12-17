@@ -74,3 +74,33 @@ notNull Violation: SidebarMenu.title cannot be null
 2024-12-13 22:32:38 [ERROR]: Uncaught Exception: read ECONNRESET
 2024-12-14 12:37:56 [ERROR]: Uncaught Exception: file is not defined
 2024-12-14 12:40:29 [ERROR]: Uncaught Exception: file is not defined
+2024-12-14 17:49:18 [ERROR]: CurrentPassword is incorrect 
+2024-12-14 18:04:15 [ERROR]: Internal server error:SequelizeValidationError: notNull Violation: Video.preview_url cannot be null,
+notNull Violation: Video.video_url cannot be null
+2024-12-14 18:05:47 [ERROR]: Internal server error:SequelizeValidationError: notNull Violation: Video.preview_url cannot be null,
+notNull Violation: Video.video_url cannot be null
+2024-12-14 18:32:33 [ERROR]: Uncaught Exception: read ECONNRESET
+2024-12-16 01:52:29 [ERROR]: Error Syncing Database: Data truncated for column 'role' at row 1
+2024-12-16 17:09:27 [ERROR]: Internal server error:TypeError: cond.fieldName.toLowerCase(...).inclueds is not a function
+2024-12-16 17:09:27 [ERROR]: Internal server error:TypeError: cond.fieldName.toLowerCase(...).inclueds is not a function
+2024-12-16 17:12:02 [ERROR]: Internal server error:TypeError: Cannot read properties of undefined (reading 'findAll')
+2024-12-16 17:12:02 [ERROR]: Internal server error:TypeError: Cannot read properties of undefined (reading 'findAll')
+2024-12-16 17:14:35 [ERROR]: Internal server error:ReferenceError: tableName is not defined
+2024-12-16 17:14:35 [ERROR]: Internal server error:ReferenceError: tableName is not defined
+2024-12-16 17:15:15 [ERROR]: Internal server error:ReferenceError: tableName is not defined
+2024-12-16 17:15:19 [ERROR]: Internal server error:ReferenceError: tableName is not defined
+2024-12-16 17:15:19 [ERROR]: Internal server error:ReferenceError: tableName is not defined
+2024-12-16 17:16:14 [ERROR]: Internal server error:ReferenceError: model is not defined
+2024-12-16 17:16:14 [ERROR]: Internal server error:ReferenceError: model is not defined
+2024-12-16 17:16:33 [ERROR]: Internal server error:SequelizeDatabaseError: Unknown column 'Course.fieldName' in 'where clause'
+2024-12-16 17:16:33 [ERROR]: Internal server error:SequelizeDatabaseError: Unknown column 'Course.fieldName' in 'where clause'
+2024-12-16 17:17:15 [ERROR]: Internal server error:SequelizeDatabaseError: Unknown column 'Course.fieldName' in 'where clause'
+2024-12-16 17:17:22 [ERROR]: Internal server error:SequelizeDatabaseError: Unknown column 'Course.fieldName' in 'where clause'
+2024-12-16 17:17:22 [ERROR]: Internal server error:SequelizeDatabaseError: Unknown column 'Course.fieldName' in 'where clause'
+2024-12-16 17:35:14 [ERROR]: Uncaught Exception: read ECONNRESET
+2024-12-16 17:57:25 [ERROR]: Internal server error:SequelizeEagerLoadingError: user is not associated to Course!
+2024-12-16 17:57:34 [ERROR]: Internal server error:SequelizeEagerLoadingError: user is not associated to Course!
+2024-12-16 17:57:34 [ERROR]: Internal server error:SequelizeEagerLoadingError: user is not associated to Course!
+2024-12-16 18:00:03 [ERROR]: Internal server error:SequelizeEagerLoadingError: user is not associated to Course!
+2024-12-16 18:00:03 [ERROR]: Internal server error:SequelizeEagerLoadingError: user is not associated to Course!
+2024-12-17 05:01:03 [ERROR]: Uncaught Exception: read ECONNRESET

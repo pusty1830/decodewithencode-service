@@ -23,7 +23,7 @@ router.route("/insertMany").post(
 );
 router
   .route("/get-all-record")
-  .get(prepareBody, verifySign, asyncHandler("", getAllRecod));
+  .post(prepareBody, verifySign, asyncHandler("", getAllRecod));
 router
   .route("/get-all-record-with-belongs-to")
   .post(prepareBody, asyncHandler("", getAllRecordBelongsTo));

@@ -20,18 +20,25 @@ let deleteData = async (tableName, cond) => {
 let getAllData = async (tableName) => {
   return await model[tableName].findAll();
 };
-let getAllDataByCond = async (tableName, cond) => {
-  if (cond.fieldName) {
-    if (cond.fieldName.toLowerCase().inclueds("date")) {
-      cond[cond.fieldName] = { [Op.gte]: new Date(cond.fieldValue) };
-      delete cond.fieldName;
-      delete cond.fieldValue;
+const getAllDataByCond = async (tableName, cond) => {
+  const queryCond = {}; // Define a new condition object
+
+  if (cond.fieldName && cond.fieldValue) {
+    if (cond.fieldName.toLowerCase().includes("date")) {
+      // Handle date-based filtering
+      queryCond[cond.fieldName] = { [Op.gte]: new Date(cond.fieldValue) };
+    } else {
+      // Assign the field name dynamically
+      queryCond[cond.fieldName] = cond.fieldValue;
     }
-    return await model[tableName].findAll({ where: cond });
   } else {
-    return await model[tableName].findAll({ where: cond });
+    Object.assign(queryCond, cond); // Use the original condition if no fieldName/fieldValue
   }
+
+  // Fetch data using the dynamically created condition
+  return await model[tableName].findAll({ where: queryCond });
 };
+
 let findAndCountAllDataByCond = async (tableName, cond, other) => {
   return await model[tableName].findAndCountAll({ where: cond, ...other });
 };

@@ -32,11 +32,28 @@ const Course = sequlize.define(
         key: "id",
       },
     },
+    cousePreviewImg: {
+      type: DataTypes.STRING(200),
+      allowNull: false,
+    },
+    isCourse: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true,
+    },
   },
   {
     tableName: "courses",
     timestamps: true,
   }
 );
+
+// Inside Course.js model
+Course.associate = (models) => {
+  // A course belongs to one user (teacher)
+  Course.belongsTo(models.User, {
+    foreignKey: "teacher_id", // teacher_id in courses table
+    as: "teacher", // Alias for the relationship
+  });
+};
 
 module.exports = Course;

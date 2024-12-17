@@ -53,11 +53,9 @@ router
   .get(verifySign, asyncHandler("user", asyncHandler("user", getProfile)));
 
 //update the PROFILE
-router.route("/update-profile").patch(
-  //prepareBody,
-  verifySign,
-  asyncHandler("user", update, updateProfile)
-);
+router
+  .route("/update-profile")
+  .patch(prepareBody, verifySign, asyncHandler("user", updateProfile));
 
 //delete the PROFILE
 router

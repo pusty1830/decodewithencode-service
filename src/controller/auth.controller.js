@@ -180,46 +180,110 @@ exports.getProfile = async (req, res) => {
 };
 
 // update the user data
+// exports.updateProfile = async (req, res) => {
+//   try {
+//     console.log("Request body:", req.body);
+//     console.log("Decoded user ID:", req.decoded.id);
+//     let user = await User.getOneUserByCond({ id: req.decoded.id });
+//     if (req.body.password) {
+//       req.body.password = await hashPassword(req.body.password);
+//       if (user) {
+//         const hash = await comparePassword(
+//           req.body.currentPassword,
+//           user.password
+//         );
+//         if (!hash) {
+//           res
+//             .status(httpRes.FORBIDDEN)
+//             .json(
+//               prepareResponse(
+//                 "FORBIDDEN",
+//                 CURRENT_PASSWORD_INCORRECT,
+//                 null,
+//                 null
+//               )
+//             );
+//         } else {
+//           const updateuser = await User.updateUser(req.decoded.id, req.body);
+//           res
+//             .status(httpRes.OK)
+//             .json(
+//               prepareResponse("OK", UPDATE_PROFILE_SUCCESS, updateuser, null)
+//             );
+//         }
+//         console.log("update user", updateuser);
+//       } else {
+//         res
+//           .status(httpRes.NOT_FOUND)
+//           .json(prepareResponse("NOT_FOUND", ACCOUNT_NOT_FOUND, null, null));
+//       }
+//     } else {
+//       const updateuser = await User.updateUser(req.decoded.id, req.body);
+//       res
+//         .status(httpRes.OK)
+//         .json(prepareResponse("OK", UPDATE_PROFILE_SUCCESS, updateuser, null));
+//       console.log("update user", updateuser);
+//     }
+//   } catch (error) {
+//     logger.error(error);
+//     return res
+//       .status(httpRes.SERVER_ERROR)
+//       .json(prepareResponse("SERVER_ERROR", SERVER_ERROR_MESSAGE, null, error));
+//   }
+// };
 exports.updateProfile = async (req, res) => {
   try {
-    let user = await User.getOneUserByCond({ id: req.decoded.id });
-    if (req.body.password) {
-      req.body.password = await hashPassword(req.body.password);
-      if (user) {
-        const hash = await comparePassword(
-          req.body.currentPassword,
-          user.password
-        );
-        if (!hash) {
-          res
-            .status(httpRes.FORBIDDEN)
-            .json(
-              prepareResponse(
-                "FORBIDDEN",
-                CURRENT_PASSWORD_INCORRECT,
-                null,
-                null
-              )
-            );
-        } else {
-          await User.updateUser(req.decoded.id, req.body);
-          res
-            .status(httpRes.OK)
-            .json(prepareResponse("OK", UPDATE_PROFILE_SUCCESS, user, null));
-        }
-      } else {
-        res
-          .status(httpRes.NOT_FOUND)
-          .json(prepareResponse("NOT_FOUND", ACCOUNT_NOT_FOUND, null, null));
-      }
-    } else {
-      await User.updateUser(req.decoded.id, req.body);
-      res
-        .status(httpRes.OK)
-        .json(prepareResponse("OK", UPDATE_PROFILE_SUCCESS, user, null));
+    const userId = req.query?.id || req.decoded.id;
+
+    let user = await User.getOneUserByCond({ id: userId });
+    if (!user) {
+      return res
+        .status(httpRes.NOT_FOUND)
+        .json(prepareResponse("NOT_FOUND", ACCOUNT_NOT_FOUND, null, null));
     }
+
+    // Handle password update logic
+    if (req.body.password) {
+      if (!req.body.currentPassword) {
+        return res
+          .status(httpRes.BAD_REQUEST)
+          .json(
+            prepareResponse(
+              "BAD_REQUEST",
+              "Current password is required",
+              null,
+              null
+            )
+          );
+      }
+
+      const hash = comparePassword(req.body.currentPassword, user.password);
+      if (!hash) {
+        return res
+          .status(httpResponseCodes.FORBIDDEN)
+          .json(
+            prepareResponse("FORBIDDEN", CURRENT_PASSWORD_INCORRECT, null, null)
+          );
+      }
+
+      // Hash the new password
+      req.body.password = hashPassword(req.body.password, 10);
+    }
+
+    // Update user details
+    await User.updateUser(req.body, { id: userId });
+
+    // Fetch the updated user
+    const updatedUser = await User.getOneUserByCond({ id: userId });
+
+    // Return success response
+    return res
+      .status(httpRes.OK)
+      .json(prepareResponse("OK", UPDATE_PROFILE_SUCCESS, updatedUser, null));
   } catch (error) {
-    logger.error(error);
+    console.error("Error in updateProfile:", error);
+
+    // Handle server errors
     return res
       .status(httpRes.SERVER_ERROR)
       .json(prepareResponse("SERVER_ERROR", SERVER_ERROR_MESSAGE, null, error));

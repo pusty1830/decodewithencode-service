@@ -32,10 +32,10 @@ const Video = sequelize.define(
       type: DataTypes.STRING(500),
       allowNull: false,
     },
-    s3_key: {
-      type: DataTypes.STRING(500),
-      allowNull: false,
-    },
+    // s3_key: {
+    //   type: DataTypes.STRING(500),
+    //   allowNull: false,
+    // },
   },
   {
     tableName: "videos",

@@ -44,6 +44,18 @@ const user = sequlizeConfig.define(
       allowNull: true,
       type: Sequilize.STRING(300),
     },
+    accountHolderName: {
+      type: Sequilize.STRING(100),
+    },
+    accountNumber: {
+      type: Sequilize.STRING(100),
+    },
+    bankName: {
+      type: Sequilize.STRING(100),
+    },
+    ifscCode: {
+      type: Sequilize.STRING(100),
+    },
     isVerified: {
       allowNull: false,
       type: Sequilize.BOOLEAN,
@@ -73,5 +85,14 @@ const user = sequlizeConfig.define(
     ],
   }
 );
+
+// Inside user.js model
+user.associate = (models) => {
+  // A user (teacher) can have many courses
+  user.hasMany(models.Course, {
+    foreignKey: "teacher_id", // teacher_id in courses table
+    as: "courses", // Alias for the relationship
+  });
+};
 
 module.exports = user;
