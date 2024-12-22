@@ -51,6 +51,17 @@ let modelvalidate = async (req, res, next) => {
   );
 };
 
+const search = (req, res, next) => {
+  const schema = Joi.object().keys({
+    data: Joi.object(),
+    page: Joi.number().min(0),
+    pageSize: Joi.number().min(0),
+    order: Joi.array(),
+  });
+  validatorHandler(req, res, next, schema);
+};
+
 module.exports = {
   modelvalidate,
+  search,
 };

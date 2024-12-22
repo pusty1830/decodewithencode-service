@@ -15,6 +15,7 @@ const {
   USER_PROFILE,
   UPDATE_PROFILE_SUCCESS,
   UPLOADED,
+  GET,
 } = require("../utils/messages");
 const { hashPassword, comparePassword } = require("../utils/Password");
 const logger = require("../utils/logger");
@@ -354,6 +355,22 @@ exports.fileUploader = (req, res) => {
     });
     res.status(httpRes.OK).json(prepareResponse("OK", UPLOADED, data, null));
   } else {
+    res
+      .status(httpRes.SERVER_ERROR)
+      .json(prepareResponse("SERVER_ERROR", SERVER_ERROR_MESSAGE, null, null));
+  }
+};
+
+//get one userby id
+exports.getOneUserById = async (req, res) => {
+  try {
+    let result = User.getOneUserByCond(req.params);
+    result = getRawData(result);
+    console.log(result);
+
+    res.status(httpRes.OK).json(prepareResponse("OK", GET, result, null));
+  } catch (error) {
+    console.log(error);
     res
       .status(httpRes.SERVER_ERROR)
       .json(prepareResponse("SERVER_ERROR", SERVER_ERROR_MESSAGE, null, null));

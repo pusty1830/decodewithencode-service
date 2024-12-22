@@ -43,23 +43,7 @@ exports.getAllRecod = async (req, res) => {
       .json(prepareResponse("SERVER_ERROR", SERVER_ERROR_MESSAGE, null, error));
   }
 };
-exports.getAllRecordBelongsTo = async (req, res) => {
-  try {
-    let secondTable = req.body.secondTable;
-    delete req.body.secondTable;
-    let result = await queryService.getAllDataByCondWithBelongsTo(
-      req.tableName,
-      req.body,
-      secondTable
-    );
-    res.status(httpres.OK).json(prepareResponse("OK", GET, result, nul));
-  } catch (error) {
-    logger.error("Internal server error:" + error);
-    res
-      .status(httpres.SERVER_ERROR)
-      .json(prepareResponse("SERVER_ERROR", SERVER_ERROR_MESSAGE, null, error));
-  }
-};
+
 exports.updaterecord = async (req, res) => {
   try {
     let result = await queryService.updateData(
@@ -79,6 +63,76 @@ exports.deleterecord = async (req, res) => {
   try {
     let result = await queryService.deleteData(req.tableName, req.params);
     res.status(httpres.OK).json(prepareResponse("OK", DELETE, result, null));
+  } catch (error) {
+    logger.error("Internal server error:" + error);
+    res
+      .status(httpres.SERVER_ERROR)
+      .json(prepareResponse("SERVER_ERROR", SERVER_ERROR_MESSAGE, null, error));
+  }
+};
+
+exports.searchRecord = async (req, res) => {
+  try {
+    let cond = req.body.data;
+    let page = req.body.page;
+    let pageSize = req.body.pageSize;
+    let order = req.body.order;
+    let result = await queryService.getAllDataByCondAndPagination(
+      req.tableName,
+      cond,
+      page,
+      pageSize,
+      order
+    );
+    res.status(httpres.OK).json(prepareResponse("OK", GET, result, null));
+  } catch (error) {
+    logger.error("Internal server error:" + error);
+    res
+      .status(httpres.SERVER_ERROR)
+      .json(prepareResponse("SERVER_ERROR", SERVER_ERROR_MESSAGE, null, error));
+  }
+};
+
+exports.getOneData = async (req, res) => {
+  try {
+    // const id = req.params.id;
+    let result = await queryService.getOneDataByCond(req.tableName, req.params);
+    res.status(httpres.OK).json(prepareResponse("OK", GET, result, null));
+  } catch (error) {
+    logger.error("Internal server error:" + error);
+    res
+      .status(httpres.SERVER_ERROR)
+      .json(prepareResponse("SERVER_ERROR", SERVER_ERROR_MESSAGE, null, error));
+  }
+};
+
+exports.getAllDataBelongsTo = async (req, res) => {
+  try {
+    let secondTable = req.body.secondTable;
+    delete req.body.secondTable;
+    let result = await queryService.getAllDataByCondWithBelongsTo(
+      req.tableName,
+      req.body,
+      secondTable
+    );
+    res.status(httpres.OK).json(prepareResponse("OK", GET, result, null));
+  } catch (error) {
+    logger.error("Internal server error:" + error);
+    res
+      .status(httpres.SERVER_ERROR)
+      .json(prepareResponse("SERVER_ERROR", SERVER_ERROR_MESSAGE, null, error));
+  }
+};
+exports.getAllDataWithHasAll = async (req, res) => {
+  try {
+    let secondTable = req.body.secondTable;
+    delete req.body.secondTable;
+    let result = await queryService.getAllDataByCondWithHasAll(
+      req.tableName,
+      req.body,
+      secondTable
+    );
+    res.status(httpres.OK).json(prepareResponse("OK", GET, result, null));
   } catch (error) {
     logger.error("Internal server error:" + error);
     res

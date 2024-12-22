@@ -78,6 +78,48 @@ let getOneDataByCondWithBelongsTo = async (tableName, cond, secondTable) => {
     include: model[secondTable],
   });
 };
+
+let getAllDataByCondAndPagination = async (
+  tableName,
+  cond,
+  page,
+  pageSize,
+  order
+) => {
+  const offset = page * pageSize;
+  const limit = pageSize;
+  const filter = cond.filter;
+  const fields = cond.fields;
+  delete cond.filter;
+  if (filter !== "") {
+    let fieldToSearch = [];
+    return async
+      .each(fields, (field, after_field) => {
+        fieldToSearch.push({ [field]: { [Op.like]: `%${filter}%` } });
+        after_field();
+      })
+      .then(async () => {
+        cond = {
+          ...cond,
+          [Op.or]: fieldToSearch,
+        };
+        return await model[tableName].findAndCountAll({
+          limit,
+          offset,
+          where: cond,
+          order,
+          // order: [['createdAt', order]],
+        });
+      });
+  } else {
+    return await model[tableName].findAndCountAll({
+      limit,
+      offset,
+      where: cond,
+      order: order,
+    });
+  }
+};
 module.exports = {
   addData,
   addBulkCreate,
@@ -92,4 +134,5 @@ module.exports = {
   getAllDataByCondWithHasAll,
   getOneDataByCondWithHasAll,
   findAndCountAllDataByCond,
+  getAllDataByCondAndPagination,
 };

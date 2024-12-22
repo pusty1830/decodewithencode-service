@@ -11,6 +11,7 @@ const {
   fileUploader,
   resetPassword,
   forgotPassword,
+  getOneUserById,
 } = require("../controller/auth.controller");
 const {
   signupValidation,
@@ -84,5 +85,10 @@ router.route("forgot-password").patch(
   forgot,
   asyncHandler("user", forgotPassword)
 );
+
+//getUserByID
+router
+  .route("/get-user-by-id/:id")
+  .get(verifySign, asyncHandler("user", getOneUserById));
 
 module.exports = router;

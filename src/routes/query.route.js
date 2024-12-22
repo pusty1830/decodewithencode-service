@@ -5,11 +5,14 @@ const {
   createData,
   insertManyData,
   getAllRecod,
-  getAllRecordBelongsTo,
   updaterecord,
   deleterecord,
+  searchRecord,
+  getOneData,
+  getAllDataBelongsTo,
+  getAllDataWithHasAll,
 } = require("../controller/query.controller");
-const { modelvalidate } = require("../validators/root.validator");
+const { modelvalidate, search } = require("../validators/root.validator");
 const { verifySign } = require("../utils/token");
 
 router.route("/create").post(
@@ -24,14 +27,34 @@ router.route("/insertMany").post(
 router
   .route("/get-all-record")
   .post(prepareBody, verifySign, asyncHandler("", getAllRecod));
+
 router
-  .route("/get-all-record-with-belongs-to")
-  .post(prepareBody, asyncHandler("", getAllRecordBelongsTo));
-router.route("/update-record/:id").patch(
-  // prepareBody,
-  asyncHandler("", updaterecord)
+  .route("/update-record/:id")
+  .patch(prepareBody, asyncHandler("", updaterecord));
+router.route("/search-record").post(
+  prepareBody,
+  verifySign,
+  // search,
+  asyncHandler("", searchRecord)
 );
+
+router
+  .route("/get-one-record/:id")
+  .get(verifySign, asyncHandler("", getOneData));
 router.route("/delete-record/:id").delete(asyncHandler("", deleterecord));
+
+//BElongsTo
+router.route("/get-all-data-belongs-to").post(
+  prepareBody,
+  //  verifySign,
+  asyncHandler("", getAllDataBelongsTo)
+);
+//HAS ALL
+router.route("/get-all-data-has-all").post(
+  prepareBody,
+  //  verifySign,
+  asyncHandler("", getAllDataWithHasAll)
+);
 
 //getone record
 module.exports = router;

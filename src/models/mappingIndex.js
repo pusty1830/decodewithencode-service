@@ -4,5 +4,5 @@ module.exports = {
   course: require("./course.model"),
   meeting: require("./meeting.model"),
   purchase: require("./purchase.model"),
-  video: require("./Video.model"),
+  courseDetails: require("./courseDetails.model"),
 };

@@ -104,3 +104,54 @@ notNull Violation: Video.video_url cannot be null
 2024-12-16 18:00:03 [ERROR]: Internal server error:SequelizeEagerLoadingError: user is not associated to Course!
 2024-12-16 18:00:03 [ERROR]: Internal server error:SequelizeEagerLoadingError: user is not associated to Course!
 2024-12-17 05:01:03 [ERROR]: Uncaught Exception: read ECONNRESET
+2024-12-17 16:21:18 [ERROR]: Uncaught Exception: read ECONNRESET
+2024-12-17 17:28:25 [ERROR]: Internal server error:SequelizeDatabaseError: Unknown column 'Course.category`Data Analyst' in 'order clause'
+2024-12-17 17:28:25 [ERROR]: Internal server error:SequelizeDatabaseError: Unknown column 'Course.category`Data Analyst' in 'order clause'
+2024-12-17 17:29:12 [ERROR]: Internal server error:SequelizeDatabaseError: Unknown column 'Course.category`Data Analyst' in 'order clause'
+2024-12-17 19:16:10 [ERROR]: Uncaught Exception: read ECONNRESET
+2024-12-17 20:33:24 [ERROR]: Uncaught Exception: read ECONNRESET
+2024-12-18 10:57:32 [ERROR]: Uncaught Exception: read ECONNRESET
+2024-12-18 11:03:44 [ERROR]: Uncaught Exception: read ECONNRESET
+2024-12-18 14:07:17 [ERROR]: Uncaught Exception: read ECONNRESET
+2024-12-18 15:53:51 [ERROR]: Internal server error:Error: Support for `{where: 'raw query'}` has been removed.
+2024-12-18 17:12:15 [ERROR]: Internal server error:SequelizeEagerLoadingError: courseDetails is not associated to Course!
+2024-12-18 18:31:04 [ERROR]: Uncaught Exception: read ECONNRESET
+2024-12-18 19:00:30 [ERROR]: Internal server error:SequelizeEagerLoadingError: courseDetails is not associated to Course!
+2024-12-18 19:00:46 [ERROR]: Internal server error:SequelizeEagerLoadingError: courseDetails is not associated to courseDetails!
+2024-12-18 19:00:57 [ERROR]: Internal server error:SequelizeEagerLoadingError: Course is not associated to courseDetails!
+2024-12-18 19:31:16 [ERROR]: Internal server error:SequelizeEagerLoadingError: courseDetails is not associated to Course!
+2024-12-18 19:50:33 [ERROR]: Uncaught Exception: read ECONNRESET
+2024-12-18 20:37:08 [ERROR]: Internal server error:SequelizeEagerLoadingError: courseDetails is not associated to Course!
+2024-12-18 20:37:29 [ERROR]: Internal server error:SequelizeEagerLoadingError: courseDetails is not associated to courseDetails!
+2024-12-18 20:39:21 [ERROR]: Internal server error:SequelizeEagerLoadingError: courseDetails is not associated to courseDetails!
+2024-12-18 20:39:21 [ERROR]: Internal server error:SequelizeEagerLoadingError: courseDetails is not associated to courseDetails!
+2024-12-18 20:43:08 [ERROR]: Internal server error:SequelizeEagerLoadingError: courseDetails is not associated to Course!
+2024-12-18 20:45:20 [ERROR]: Internal server error:SequelizeEagerLoadingError: courseDetails is not associated to Course!
+2024-12-18 20:45:20 [ERROR]: Internal server error:SequelizeEagerLoadingError: courseDetails is not associated to Course!
+2024-12-18 20:46:47 [ERROR]: Internal server error:SequelizeEagerLoadingError: courseDetails is not associated to Course!
+2024-12-18 20:59:59 [ERROR]: Internal server error:SequelizeEagerLoadingError: courseDetails is not associated to Course!
+2024-12-18 20:59:59 [ERROR]: Internal server error:SequelizeEagerLoadingError: courseDetails is not associated to Course!
+2024-12-18 21:23:08 [ERROR]: Uncaught Exception: read ECONNRESET
+2024-12-19 11:02:37 [ERROR]: Internal server error:SequelizeEagerLoadingError: courseDetails is not associated to Course!
+2024-12-19 11:02:52 [ERROR]: Internal server error:SequelizeEagerLoadingError: courseDetails is not associated to Course!
+2024-12-19 11:02:52 [ERROR]: Internal server error:SequelizeEagerLoadingError: courseDetails is not associated to Course!
+2024-12-19 11:10:09 [ERROR]: Internal server error:TypeError: model[tableName].findAll is not a function
+2024-12-19 11:10:09 [ERROR]: Internal server error:TypeError: model[tableName].findAll is not a function
+2024-12-19 11:14:21 [ERROR]: Internal server error:TypeError: model[tableName].findAll is not a function
+2024-12-19 11:14:21 [ERROR]: Internal server error:TypeError: model[tableName].findAll is not a function
+2024-12-19 11:15:15 [ERROR]: Internal server error:TypeError: model[tableName].findAll is not a function
+2024-12-19 11:15:15 [ERROR]: Internal server error:TypeError: model[tableName].findAll is not a function
+2024-12-19 11:17:44 [ERROR]: Internal server error:TypeError: model[tableName].findAll is not a function
+2024-12-19 11:17:44 [ERROR]: Internal server error:TypeError: model[tableName].findAll is not a function
+2024-12-19 11:20:34 [ERROR]: Internal server error:SequelizeDatabaseError: Unknown column 'Course.course_id' in 'where clause'
+2024-12-19 11:20:34 [ERROR]: Internal server error:SequelizeDatabaseError: Unknown column 'Course.course_id' in 'where clause'
+2024-12-19 11:39:54 [ERROR]: Internal server error:SequelizeEagerLoadingError: courseDetails is not associated to Course!
+2024-12-19 11:39:54 [ERROR]: Internal server error:SequelizeEagerLoadingError: courseDetails is not associated to Course!
+2024-12-20 10:31:12 [ERROR]: CurrentPassword is incorrect 
+2024-12-20 10:31:16 [ERROR]: CurrentPassword is incorrect 
+2024-12-20 10:34:00 [ERROR]: Account not found
+2024-12-20 10:34:06 [ERROR]: Account not found
+2024-12-20 12:02:08 [ERROR]: Uncaught Exception: read ECONNRESET
+2024-12-20 19:39:38 [ERROR]: Account not found
+2024-12-20 19:39:43 [ERROR]: Account not found
+2024-12-20 19:39:57 [ERROR]: Account not found

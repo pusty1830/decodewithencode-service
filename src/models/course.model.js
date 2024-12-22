@@ -1,5 +1,6 @@
 const { DataTypes } = require("sequelize");
 const sequlize = require("../config/db.config");
+const courseDetails = require("./courseDetails.model");
 
 const Course = sequlize.define(
   "Course",
@@ -9,22 +10,6 @@ const Course = sequlize.define(
       primaryKey: true,
       autoIncrement: true,
     },
-    title: {
-      type: DataTypes.STRING(200),
-      allowNull: false,
-    },
-    category: {
-      type: DataTypes.STRING(200),
-      allowNull: false,
-    },
-    description: {
-      type: DataTypes.STRING(500),
-      allowNull: false,
-    },
-    price: {
-      type: DataTypes.DECIMAL(10, 2),
-      allowNull: false,
-    },
     teacher_id: {
       type: DataTypes.INTEGER,
       references: {
@@ -32,13 +17,22 @@ const Course = sequlize.define(
         key: "id",
       },
     },
-    cousePreviewImg: {
-      type: DataTypes.STRING(200),
+    type: {
+      type: DataTypes.ENUM("course", "practice-test"),
+      allowNull: false,
+      defaultValue: "Course",
+    },
+    title: {
+      type: DataTypes.STRING(70),
       allowNull: false,
     },
-    isCourse: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: true,
+    category: {
+      type: DataTypes.STRING(100),
+      allowNull: false,
+    },
+    timeSpendperWeak: {
+      type: DataTypes.STRING(255),
+      allowNull: false,
     },
   },
   {
@@ -46,14 +40,9 @@ const Course = sequlize.define(
     timestamps: true,
   }
 );
-
-// Inside Course.js model
-Course.associate = (models) => {
-  // A course belongs to one user (teacher)
-  Course.belongsTo(models.User, {
-    foreignKey: "teacher_id", // teacher_id in courses table
-    as: "teacher", // Alias for the relationship
-  });
-};
+Course.hasOne(courseDetails, {
+  foreignKey: "course_id",
+  constraints: false,
+});
 
 module.exports = Course;
