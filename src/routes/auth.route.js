@@ -64,10 +64,10 @@ router
   .delete(verifySign, asyncHandler("user", deleteProfile));
 
 //adminSignin
-router.route("/admin-signin").post(
-  // prepareBody,
-  asyncHandler("user", signinValidation)
-);
+// router.route("/admin-signin").post(
+//   // prepareBody,
+//   asyncHandler("user", signinValidation)
+// );
 
 //File-Uploader
 router.route("/upload-doc").post(upload.array("files", 5), fileUploader);
